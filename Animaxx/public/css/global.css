@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    width: 1375px;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+.f{
+    display: flex;
+}

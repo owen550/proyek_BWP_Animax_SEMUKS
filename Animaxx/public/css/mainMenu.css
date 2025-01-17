@@ -1,0 +1,199 @@
+.baseColor{
+    background-color: #2a2a2a;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.navBar{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navBar .setLogo{
+    width: 200px;
+    height: 100%;
+    /* background-color: green; */
+}
+
+.navBar .setMenu{
+    width: 450px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navBar .setMenu .setMenuTambahan{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.navBar .searchBarTemplate{
+    width: 350px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.navBar .searchBarTemplate  .searchBar{
+    width: 350px;
+    background-color: black;
+    border-radius: 15px;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+}
+
+.navBar .searchBarTemplate  .searchBar .setInputSearchBar{
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 80%;
+}
+
+.navBar .setFotoProfil{
+    width: 70px;
+    height: 70px;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBar .setFotoProfil .setGambar{
+    width: 65px;
+    height: 65px;
+    border-radius: 50px;
+}
+
+.navBar .setFotoProfil .setGambar .setFotoProfilUser{
+    width: 100%;
+    height: 100%;
+}
+
+.isi{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.isi .setBorder{
+    padding: 20px;
+}
+
+.isi .allvid{
+    width: 70%;
+    min-height: 30px;
+    /* background-color: yellow;  */
+}
+
+.isi .allvid .setUkuranPanel{
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+}
+
+.isi .allvid .setTopAnime{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 1) 10%, rgba(255, 0, 0, 0)); 
+    padding: 20px;
+    display: flex;
+}
+
+.isi .allvid .setJudul{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.isi .allvid .transisi{
+    width: 50%;
+    height:100%;
+    padding: 20px;
+    /* background-color: white; */
+}
+
+.isi .allvid .watchAlbum{
+    width: 100%;
+    height: 50px;
+    background-color: red;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
+
+.isi .allvid .watchAlbum:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.isi .listAnime{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.isi .card{
+    width: 210px;
+    background-color: transparent;
+    height: 350px;
+    margin-bottom: 20px;
+}
+
+.isi .card .setUkuranGambar{
+    width: 100%;
+    height: 100%;
+}
+
+.isi .card .setGambar{
+    width: 100%;
+    height: 70%;
+    background-color: yellow;
+}
+
+.isi .newrelase{
+    width: 30%;
+    min-height: 30px;
+    /* background-color: blue; */
+}
+
+.isi .newrelase .miniCard{
+    width: 100%;
+    height: 140px;
+    display: flex;
+    margin-bottom: 30px;
+    /* background-color: red; */
+}
+
+.isi .newrelase .miniCard .setGambarCardMini{
+    width: 40%;
+    height: 140px;
+    border-radius: 15px;
+    background-size: cover;
+}
+
+.isi .newrelase .miniCard .setIdentitas{
+    width: 60%;
+    height: 140px;
+    padding-left: 15px;
+    /* background-color: green; */
+    font-size: 13.5px;
+}
+
+.footer{
+    width: 100%;
+    height: 260px;
+}
+
+
+

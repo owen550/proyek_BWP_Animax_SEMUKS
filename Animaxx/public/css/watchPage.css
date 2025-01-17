@@ -1,0 +1,64 @@
+.setLayarVidio{
+    background-color: black;
+    width: 100%;
+    height: 425px;
+}
+
+.setJudul{
+    color: white;
+}
+
+.setFont{
+    font-size: 30px;
+}
+
+.giveSpace{
+    margin-right: 50px;
+}
+
+.scrollBar {
+    overflow: auto;
+    width: 100%;
+    height: 700px;
+
+    /* Hilangkan scroll bar di semua browser */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.scrollBar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, dan Edge */
+}
+
+.setKomentar{
+    color: white;
+    margin-top: 20px;
+}
+
+.setKomentar .setCardComentar{
+    width: 100%;
+    min-height: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* background-color: yellow; */
+    display: flex;
+}
+
+.setKomentar .setCardComentar .setFotoProfilUser{
+    width: 60px;
+    /* background-color: red; */
+    height: 60px;
+    border-radius: 50px;
+    background-size: cover;
+}
+
+.setKomentar .setCardComentar .setUserInfo{
+    width: 100%;
+    /* background-color: green; */
+    height: 100%;
+    padding-left: 10px;
+}
+
+.setKomentar .setCardComentar .setUserInfo .setNamaUser{
+    font-weight: bold;
+}

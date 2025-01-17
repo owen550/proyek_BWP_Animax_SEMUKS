@@ -1,0 +1,130 @@
+.setMainBg{
+    background-size: cover;
+
+    /* background-color: #2a2a2a; */
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+}
+
+.uatama{
+    width: 100%;
+    height: auto;
+}
+
+.setTengah{
+    display: flex;
+    justify-content: center;
+}
+
+.setImgProfil{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-size: cover;
+}
+
+.full{
+    background-color: #1a1a1a;
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.full .history{
+    display: flex; /* Mengatur elemen anak menjadi baris horizontal */
+    gap: 10px; /* Jarak antar elemen */
+    padding: 10px;
+    overflow-x: auto; /* Mengaktifkan scroll horizontal */
+    scroll-behavior: smooth; /* Scroll lebih halus */
+    white-space: nowrap; /* Mencegah teks melipat ke baris berikutnya */
+
+    /* Sembunyikan scrollbar */
+    -ms-overflow-style: none; /* Untuk Internet Explorer dan Edge */
+    scrollbar-width: none; /* Untuk Firefox */
+}
+
+.history::-webkit-scrollbar {
+    display: none; /* Sembunyikan scrollbar untuk Chrome, Safari, dan Edge berbasis Chromium */
+}
+
+.cardHistory{
+    flex: 0 0 auto; /* Mencegah elemen menyusut */
+    width: 250px; /* Lebar tetap setiap item */
+    height: 180px; /* Tinggi tetap setiap item */
+    justify-content: center; /* Konten di tengah secara horizontal */
+    color: white; /* Warna teks */
+    font-size: 16px; /* Ukuran font teks */
+}
+
+.cardHistory .setHistoryImg{
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+}
+
+.cardHistory .setHistoryTitle{
+    width: 100%;
+    height: 30px;
+}
+
+.fillInfo{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 15px;
+    padding-left: 20px;
+}
+
+.fillInfoButton{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: black;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.fillInfoButton:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.setButtonLogOut{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    background-color: red;
+    color: white;
+    border-radius: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.setButtonLogOut:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.setButtonUmum{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    background-color: yellow;
+    color: white;
+    border-radius: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.setButtonUmum:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+}
