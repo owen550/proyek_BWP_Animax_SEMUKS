@@ -29,10 +29,14 @@
                 <span>Status : Nti disi status <br></span>
                 <span>Relase Date : (dd MM YYYY) <br> </span>
                 <span>Studio : Misal Mapa</span> <br><br>
-                <div class="watchAlbum">
-                    <i class="bi bi-collection-play"></i>
-                    <span style="margin-left: 20px;">Watch Album </span>
-                </div>
+
+                <a href="{{url('album')}}">
+                    <div class="watchAlbum">
+                        <i class="bi bi-collection-play"></i>
+                        <span style="margin-left: 20px;">Watch Album </span>
+                    </div>
+                </a>
+            
             </div>
         </div>
         <!--  -->
