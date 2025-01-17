@@ -6,6 +6,7 @@ Login
 
 @section('isian')
 <div>
+    //Saya adalah Christopher Octave Sinjaya yang rohnya telah tertukar
     <form action="/" method="post">
         @csrf
         <input type="text" id="edUser" class="setUkuran" placeholder="username" name="edUsername">
