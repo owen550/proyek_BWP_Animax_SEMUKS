@@ -59,6 +59,276 @@
                 <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
             </div> 
         </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
+        <div class="card">
+            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+            </div>
+            <div> <!-- Isi Judul Anime Di Sini --->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
+                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+            </div> 
+        </div>
 
     </div>  
 @endsection
