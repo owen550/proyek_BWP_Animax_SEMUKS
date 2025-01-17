@@ -6,6 +6,7 @@ Login
 
 @section('isian')
 <div>
+    selamatkan kami dari teori grap pak baskoro !!!!
     <form action="/" method="post">
         @csrf
         <input type="text" id="edUser" class="setUkuran" placeholder="username" name="edUsername">
