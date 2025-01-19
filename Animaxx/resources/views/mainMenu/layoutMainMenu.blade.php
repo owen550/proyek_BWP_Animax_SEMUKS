@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{asset('css/mainMenu.css')}}"> <!-- buat Main Menu -->
     <link rel="stylesheet" href="{{asset('css/global.css')}}"> 
     <link rel="stylesheet" href="{{asset('css/watchPage.css')}}"> <!-- buat watch page -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- buat ajax jquery -->
+    <meta name="csrf-token" content="{{ csrf_token() }}"> <!-- Ajax csrf token -->
 </head>
   <body>
     <div class="baseColor">
