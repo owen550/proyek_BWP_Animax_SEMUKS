@@ -34,6 +34,7 @@ Route::post('/register',[loginRegisterControler::class,'register']);
 
 // ===================================================== buat main menu user dan admin
 Route::get('/main/home',[MainMenuControler::class,'mainMenuDataReturn']);
+Route::get('/main/home/filter',[MainMenuControler::class,'filter']);
 
 Route::get('/main/profile/admin',function(){
     return view('profile/adminProfile');
