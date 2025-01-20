@@ -46,41 +46,44 @@
     <br>
     <br>
     <h2 id="title">Home</h2>
-    <div class="listAnime">
+    <div class="listAnime" id="listAnime">
         
         @foreach ($dt['album'] as $d)
         <!-- isi tiap card (oi mas adidas ini check poin ya dull) -->
-        <div class="card">
-            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
-                <img src="{{$d->imageHorizontal}}" alt="" class="setUkuranGambar">
-            </div>
-            <div> <!-- Isi Judul Anime Di Sini --->
-                <span style="color: yellow;font-weight: bold; font-size: 25px;">{{$d->judulUtama}}<br></span> <!-- Judul -->
-                
-                <span style="color: mediumblue; font-weight: bold; font-size: 16px;">Genre: 
-                @foreach ($dt['album'] as $album)  <!-- Looping melalui album -->
-                    @if ($album->judulUtama == $d->judulUtama) <!-- Memeriksa judul album -->
-                        @foreach ($album->genres as $genre)  <!-- Looping melalui genre terkait -->
-                            <span>{{ $genre->genreName }}</span> <!-- Menampilkan nama genre -->
-                            @if (!$loop->last) <!-- Jika bukan genre terakhir -->
-                                ,
-                            @endif
-                        @endforeach
-                    @endif
-                @endforeach
-                <!-- cek poin -->
-            </span>
-
-                <br></span> <!-- Genre -->
-                <span style="color: white;">Like : 
-                    @foreach ($dt['listlike'] as $l)
-                    @if ($l->judulUtama == $d->judulUtama)
-                        {{$l->like_total}}
-                    @endif
+        <a href="/album/{{$d->judulUtama}}" style="text-decoration: none;">
+            <!-- ======================================== -->
+            <div class="card">
+                <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
+                    <img src="{{$d->imageHorizontal}}" alt="" class="setUkuranGambar">
+                </div>
+                <div> <!-- Isi Judul Anime Di Sini --->
+                    <span style="color: yellow;font-weight: bold; font-size: 25px;">{{$d->judulUtama}}<br></span> <!-- Judul -->
+                    <span style="color: mediumblue; font-weight: bold; font-size: 16px;">Genre: 
+                    @foreach ($dt['album'] as $album)  <!-- Looping melalui album -->
+                        @if ($album->judulUtama == $d->judulUtama) <!-- Memeriksa judul album -->
+                            @foreach ($album->genres as $genre)  <!-- Looping melalui genre terkait -->
+                                <span>{{ $genre->genreName }}</span> <!-- Menampilkan nama genre -->
+                                @if (!$loop->last) <!-- Jika bukan genre terakhir -->
+                                    ,
+                                @endif
+                            @endforeach
+                        @endif
                     @endforeach
-                </span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
-            </div> 
-        </div>
+                    <!-- cek poin -->
+                </span>
+
+                    <br></span> <!-- Genre -->
+                    <span style="color: white;">Like : 
+                        @foreach ($dt['listlike'] as $l)
+                        @if ($l->judulUtama == $d->judulUtama)
+                            {{$l->like_total}}
+                        @endif
+                        @endforeach
+                    </span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+                </div> 
+            </div>
+            <!-- ======================================== -->
+        </a>
         @endforeach
 
     </div>  
@@ -114,20 +117,51 @@
                 data:{
                     filter: $filter
                 },
-                success:function(res){
-                    // ubah warna navigation
-                    $('.setMenuTambahan').each(function () {
-                        if($(this).text() == $filter){
-                            $(this).removeClass('setUngu');
-                        }
-                        else{
-                            $(this).addClass('setUngu');
-                        }
-                    })
-                    $('#title').text(res.dt['judul']);
-                    // dapatkan data dan reset ulang view utama
+                success: function(res) {
+                // Ubah warna navigasi
+                $('.setMenuTambahan').each(function () {
+                    if($(this).text() == $filter){
+                        $(this).removeClass('setUngu');
+                    } else {
+                        $(this).addClass('setUngu');
+                    }
+                });
 
-                },
+                $('#title').text(res.dt['judul']);
+                $('#listAnime').empty(); // Reset ulang view utama
+                var tabelBaru = '';
+
+                // Looping melalui album
+                $(res.dt['album']).each(function(index, con) {
+                    tabelBaru +=
+                        '<div class="card">' +
+                            '<div class="setGambar">' +
+                                '<img src="' + con.imageHorizontal + '" alt="" class="setUkuranGambar">' +
+                            '</div>' +
+                            '<div>' +
+                                '<span style="color: yellow; font-weight: bold; font-size: 25px;">' + con.judulUtama + '<br></span>' +
+                                '<span style="color: mediumblue; font-weight: bold; font-size: 16px;">Genre: ';
+
+                    // Menambahkan genre
+                    var genres = con.genres.map(function(genre) {
+                        return genre.genreName;
+                    }).join(', ');
+
+                    tabelBaru += genres + '</span><br>';
+
+                    // Menambahkan like
+                    var likeCount = res.dt['listlike'].find(function(l) {
+                        return l.judulUtama === con.judulUtama;
+                    });
+
+                    tabelBaru += '<span style="color: white;">Like: ' + (likeCount ? likeCount.like_total : 0) + '</span>' +
+                                '</div>' +
+                            '</div>';
+                });
+
+                // Menambahkan card baru ke kontainer
+                $('#listAnime').append(tabelBaru);
+            },
                 error:function() {
                     alert('Error');
                 }

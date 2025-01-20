@@ -32,7 +32,15 @@ class MainMenuControler extends Controller
         $filterTable = $req->input('filter');
         $dt['judul'] = $filterTable;
         if($filterTable == 'Home'){
-            $dt['konten'] = TabelAlbum::with('genres')->get();
+            $dt['album'] = TabelAlbum::with('genres')->get();
+        
+            $dt['listlike'] = DB::table('likelist as l')
+            ->join('vidio as v', 'v.id', '=', 'l.idVidio')
+            ->join('album as a', 'a.id', '=', 'v.album')
+            ->select('a.judulUtama', DB::raw('count(a.judulUtama) as like_total'))
+            ->groupBy('a.judulUtama')
+            ->orderByDesc('like_total')
+            ->get();
         }
         else if($filterTable == 'PlayList'){
 

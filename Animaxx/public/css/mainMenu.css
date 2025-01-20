@@ -159,6 +159,11 @@
     background-color: transparent;
     height: 100%;
     margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.isi .card:hover{
+    background-color: #2a2a2a;
 }
 
 .isi .card .setUkuranGambar{
@@ -169,7 +174,8 @@
 .isi .card .setGambar{
     width: 100%;
     height: 70%;
-    background-color: yellow;
+    background-size: cover;
+
 }
 
 .isi .newrelase{
