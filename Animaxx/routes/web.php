@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\loginRegisterControler;
 use App\Http\Controllers\MainMenuControler;
 use App\Http\Controllers\ProfileControler;
@@ -47,9 +48,7 @@ Route::get('/main/profile/user',function(){
 Route::post('/main/profile/ubah',[ProfileControler::class,'editProfil']);
 
 // ==================================================== buat album
-Route::get('/album',function(){
-    return view('album/album');
-});
+Route::get('/album/{id}',[AlbumController::class,'setAlbum']);
 
 Route::get('/album/watch',function(){
     return view('watch/watch');

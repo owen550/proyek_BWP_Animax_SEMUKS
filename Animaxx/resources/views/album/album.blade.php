@@ -11,7 +11,7 @@
 </head>
   <body>
     <!-- untuk gambar bgi ganti sesuai yang dibuka -->
-    <div class="setLayarUtama" style="background-image: url('https://wallpaperaccess.com/full/9408932.png');">
+    <div class="setLayarUtama" style="background-image: url('{{$dt['album']->imageAlbum}}');">
         <div class="addLayertransisi"></div>
         <div class="addSecondaryLayer">
           <div class="navBar">
@@ -20,8 +20,8 @@
           <div style="width: 100%;display:flex;">
             <div class="infoAnime">
               <div class="infoDetail">
-                <span style="color: white;"><h1>Alif Penjelajah Angkasa</h1></span> <br> <!-- Judul -->
-                <span style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, maxime? Aspernatur non est quaerat dolorum! Facilis cum quaerat, ipsam rerum amet laborum vitae assumenda, quasi doloribus dignissimos dolor. Magni, iusto?</span> <br><br> <!-- Deskripsi -->
+                <span style="color: white;"><h1>{{$dt['album']->judulUtama}}</h1></span> <br> <!-- Judul -->
+                <span style="color: white;">{{$dt['album']->deskripsi}}</span> <br><br> <!-- Deskripsi -->
                 <span style="color: white">Genre : (munculkan genre di sini)</span> <br><br> <!-- Genre -->
                 <div class="setTombolWatch"> <!-- tombol lihat trailer sama lihat vidio langsung -->
                   <a href="{{url('/album/watch')}}" class="setButton setColor1">Watch Trailer</a>
