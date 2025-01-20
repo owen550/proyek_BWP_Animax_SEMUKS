@@ -24,8 +24,8 @@
                 <span style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, maxime? Aspernatur non est quaerat dolorum! Facilis cum quaerat, ipsam rerum amet laborum vitae assumenda, quasi doloribus dignissimos dolor. Magni, iusto?</span> <br><br> <!-- Deskripsi -->
                 <span style="color: white">Genre : (munculkan genre di sini)</span> <br><br> <!-- Genre -->
                 <div class="setTombolWatch"> <!-- tombol lihat trailer sama lihat vidio langsung -->
-                  <a href="" class="setButton setColor1">Watch Trailer</a>
-                  <a href="" class="setButton setColor2">Watch Anime</a>
+                  <a href="{{url('/album/watch')}}" class="setButton setColor1">Watch Trailer</a>
+                  <a href="{{url('/album/watch')}}" class="setButton setColor2">Watch Anime</a>
                 </div>
               </div>
             </div>
