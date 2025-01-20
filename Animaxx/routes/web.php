@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\loginRegisterControler;
 use App\Http\Controllers\MainMenuControler;
@@ -54,4 +55,12 @@ Route::get('/watch/{id}',function(){
     return view('watch/watch');
 });
 
+
+
+Route::get('/uploadAlbum', [AlbumController::class, 'create'])->name('upload.album');
+
+Route::post('/uploadAlbum', [AlbumController::class, 'store'])->name('uploadAlbum.store');
+
+Route::get('/lihat-users', [UserController::class, 'showUsers'])->name('lihatUsers');
+Route::post('/update-user-status/{id}', [UserController::class, 'updateUserStatus'])->name('updateUserStatus');
 
