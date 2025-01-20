@@ -19,7 +19,7 @@
 .scrollBar {
     overflow: auto;
     width: 100%;
-    height: 700px;
+    /* height: 700px; */
 
     /* Hilangkan scroll bar di semua browser */
     scrollbar-width: none; /* Firefox */
