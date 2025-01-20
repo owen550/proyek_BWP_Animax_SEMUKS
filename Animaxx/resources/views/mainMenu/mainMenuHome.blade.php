@@ -5,10 +5,10 @@
 
 <!-- bagian menu di atasnya -->
 @section('menu')
-    <span id="filter" class="setMenuTambahan setUngu">Home</span>
-    <span id="filter" class="setMenuTambahan">PlayList</span>
-    <span id="filter" class="setMenuTambahan">Movies</span>
-    <span id="filter" class="setMenuTambahan">News</span>
+    <span id="Home" class="setMenuTambahan setUngu">Home</span>
+    <span id="Playlist" class="setMenuTambahan">PlayList</span>
+    <span id="Movies" class="setMenuTambahan">Movies</span>
+    <span id="News" class="setMenuTambahan">News</span>
 @endsection
 
 <!-- bagian list vidionya -->
@@ -45,7 +45,7 @@
     <!-- Bagian Ini Tampilin Semua -->
     <br>
     <br>
-    <h2>Popular Anime</h2>
+    <h2 id="title">Home</h2>
     <div class="listAnime">
         
         @foreach ($dt['album'] as $d)
@@ -56,10 +56,10 @@
             </div>
             <div> <!-- Isi Judul Anime Di Sini --->
                 <span style="color: yellow;font-weight: bold; font-size: 25px;">{{$d->judulUtama}}<br></span> <!-- Judul -->
-                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : 
-
+                
+                <span style="color: mediumblue; font-weight: bold; font-size: 16px;">Genre: 
                 @foreach ($dt['album'] as $album)  <!-- Looping melalui album -->
-                    @if ($album->judulUtama == $d->judulUtama) <!-- bagian ini masih error -->
+                    @if ($album->judulUtama == $d->judulUtama) <!-- Memeriksa judul album -->
                         @foreach ($album->genres as $genre)  <!-- Looping melalui genre terkait -->
                             <span>{{ $genre->genreName }}</span> <!-- Menampilkan nama genre -->
                             @if (!$loop->last) <!-- Jika bukan genre terakhir -->
@@ -68,6 +68,8 @@
                         @endforeach
                     @endif
                 @endforeach
+                <!-- cek poin -->
+            </span>
 
                 <br></span> <!-- Genre -->
                 <span style="color: white;">Like : 
@@ -102,9 +104,36 @@
     <!-- ajax dll -------------------------------------------------------------------------------------------- -->
     <script>
         // akan ada 2 hal yang dilakukan, 1 lakukan ajax ubah navbar, lakukan reload data dan show ulang
-        $('#filter').click(function (even) {
-            // sek error betulis bsk
+        $('.setMenuTambahan').click(function (event){
+            event.preventDefault();
+            var $filter = $(this).text();
+
+            $.ajax({
+                url: '/main/home/filter',
+                type: 'GET',
+                data:{
+                    filter: $filter
+                },
+                success:function(res){
+                    // ubah warna navigation
+                    $('.setMenuTambahan').each(function () {
+                        if($(this).text() == $filter){
+                            $(this).removeClass('setUngu');
+                        }
+                        else{
+                            $(this).addClass('setUngu');
+                        }
+                    })
+                    $('#title').text(res.dt['judul']);
+                    // dapatkan data dan reset ulang view utama
+
+                },
+                error:function() {
+                    alert('Error');
+                }
+            })
         });
+
         // buat token ajax
         $.ajaxSetup({
             headers: {
