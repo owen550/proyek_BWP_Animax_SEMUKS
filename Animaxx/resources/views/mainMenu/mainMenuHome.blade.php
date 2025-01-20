@@ -118,50 +118,52 @@
                     filter: $filter
                 },
                 success: function(res) {
-                // Ubah warna navigasi
-                $('.setMenuTambahan').each(function () {
-                    if($(this).text() == $filter){
-                        $(this).removeClass('setUngu');
-                    } else {
-                        $(this).addClass('setUngu');
-                    }
-                });
-
-                $('#title').text(res.dt['judul']);
-                $('#listAnime').empty(); // Reset ulang view utama
-                var tabelBaru = '';
-
-                // Looping melalui album
-                $(res.dt['album']).each(function(index, con) {
-                    tabelBaru +=
-                        '<div class="card">' +
-                            '<div class="setGambar">' +
-                                '<img src="' + con.imageHorizontal + '" alt="" class="setUkuranGambar">' +
-                            '</div>' +
-                            '<div>' +
-                                '<span style="color: yellow; font-weight: bold; font-size: 25px;">' + con.judulUtama + '<br></span>' +
-                                '<span style="color: mediumblue; font-weight: bold; font-size: 16px;">Genre: ';
-
-                    // Menambahkan genre
-                    var genres = con.genres.map(function(genre) {
-                        return genre.genreName;
-                    }).join(', ');
-
-                    tabelBaru += genres + '</span><br>';
-
-                    // Menambahkan like
-                    var likeCount = res.dt['listlike'].find(function(l) {
-                        return l.judulUtama === con.judulUtama;
+                    // Ubah warna navigasi
+                    $('.setMenuTambahan').each(function () {
+                        if ($(this).text() == $filter) {
+                            $(this).removeClass('setUngu');
+                        } else {
+                            $(this).addClass('setUngu');
+                        }
                     });
 
-                    tabelBaru += '<span style="color: white;">Like: ' + (likeCount ? likeCount.like_total : 0) + '</span>' +
-                                '</div>' +
-                            '</div>';
-                });
+                    $('#title').text(res.dt['judul']);
+                    $('#listAnime').empty(); // Reset ulang view utama
+                    var tabelBaru = '';
 
-                // Menambahkan card baru ke kontainer
-                $('#listAnime').append(tabelBaru);
-            },
+                    // Looping melalui album
+                    $(res.dt['album']).each(function(index, con) {
+                        tabelBaru +=
+                            '<a href="/album/' + con.judulUtama + '" style="text-decoration: none;">' + // Link ke album
+                                '<div class="card">' +
+                                    '<div class="setGambar">' +
+                                        '<img src="' + con.imageHorizontal + '" alt="" class="setUkuranGambar">' +
+                                    '</div>' +
+                                    '<div>' +
+                                        '<span style="color: yellow; font-weight: bold; font-size: 25px;">' + con.judulUtama + '<br></span>' +
+                                        '<span style="color: mediumblue; font-weight: bold; font-size: 16px;">Genre: ';
+
+                        // Menambahkan genre
+                        var genres = con.genres.map(function(genre) {
+                            return genre.genreName;
+                        }).join(', ');
+
+                        tabelBaru += genres + '</span><br>';
+
+                        // Menambahkan like
+                        var likeCount = res.dt['listlike'].find(function(l) {
+                            return l.judulUtama === con.judulUtama;
+                        });
+
+                        tabelBaru += '<span style="color: white;">Like: ' + (likeCount ? likeCount.like_total : 0) + '</span>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</a>'; // Tutup link
+                    });
+
+                    // Menambahkan card baru ke kontainer
+                    $('#listAnime').append(tabelBaru);
+                },
                 error:function() {
                     alert('Error');
                 }
