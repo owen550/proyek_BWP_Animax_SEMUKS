@@ -1,8 +1,13 @@
 <?php
 
 use App\Http\Controllers\loginRegisterControler;
+use App\Http\Controllers\MainMenuControler;
 use App\Http\Controllers\ProfileControler;
 use Illuminate\Support\Facades\Route;
+
+// untuk model
+use App\Models\TabelAlbum;
+use App\Models\TabelGenre;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +29,11 @@ Route::get('/register', function () {
     return view('loginRegisterPage/register');
 });
 
-Route::post('/',[loginRegisterControler::class,'login']);
+Route::post('/',[loginRegisterControler::class,'login']); 
 Route::post('/register',[loginRegisterControler::class,'register']);
 
 // ===================================================== buat main menu user dan admin
-Route::get('/main/home', function () {
-    return view('mainMenu/mainMenuHome');
-});
+Route::get('/main/home',[MainMenuControler::class,'mainMenuDataReturn']);
 
 Route::get('/main/profile/admin',function(){
     return view('profile/adminProfile');

@@ -5,10 +5,10 @@
 
 <!-- bagian menu di atasnya -->
 @section('menu')
-<a href="" class="setMenuTambahan" style="text-decoration: underline;color: purple;">Home</a>
-<a href="" class="setMenuTambahan">PlayList</a>
-<a href="" class="setMenuTambahan">Movies</a>
-<a href="" class="setMenuTambahan">News</a>
+    <span id="filter" class="setMenuTambahan setUngu">Home</span>
+    <span id="filter" class="setMenuTambahan">PlayList</span>
+    <span id="filter" class="setMenuTambahan">Movies</span>
+    <span id="filter" class="setMenuTambahan">News</span>
 @endsection
 
 <!-- bagian list vidionya -->
@@ -47,38 +47,39 @@
     <br>
     <h2>Popular Anime</h2>
     <div class="listAnime">
-            
+        
+        @foreach ($dt['album'] as $d)
         <!-- isi tiap card (oi mas adidas ini check poin ya dull) -->
         <div class="card">
             <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
-                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
+                <img src="{{$d->imageHorizontal}}" alt="" class="setUkuranGambar">
             </div>
             <div> <!-- Isi Judul Anime Di Sini --->
-                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
-                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
-                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
+                <span style="color: yellow;font-weight: bold; font-size: 25px;">{{$d->judulUtama}}<br></span> <!-- Judul -->
+                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : 
+
+                @foreach ($dt['album'] as $album)  <!-- Looping melalui album -->
+                    @if ($album->judulUtama == $d->judulUtama) <!-- bagian ini masih error -->
+                        @foreach ($album->genres as $genre)  <!-- Looping melalui genre terkait -->
+                            <span>{{ $genre->genreName }}</span> <!-- Menampilkan nama genre -->
+                            @if (!$loop->last) <!-- Jika bukan genre terakhir -->
+                                ,
+                            @endif
+                        @endforeach
+                    @endif
+                @endforeach
+
+                <br></span> <!-- Genre -->
+                <span style="color: white;">Like : 
+                    @foreach ($dt['listlike'] as $l)
+                    @if ($l->judulUtama == $d->judulUtama)
+                        {{$l->like_total}}
+                    @endif
+                    @endforeach
+                </span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
             </div> 
         </div>
-        <div class="card">
-            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
-                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
-            </div>
-            <div> <!-- Isi Judul Anime Di Sini --->
-                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
-                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
-                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
-            </div> 
-        </div>
-        <div class="card">
-            <div class="setGambar"> <!-- Isi Gambarnya Di Sini Ntik Ganti Sesuai DB-->
-                <img src="https://wallpaperaccess.com/full/9408941.jpg" alt="" class="setUkuranGambar">
-            </div>
-            <div> <!-- Isi Judul Anime Di Sini --->
-                <span style="color: yellow;font-weight: bold; font-size: 25px;">Ambil dari db <br></span> <!-- Judul -->
-                <span style="color: mediumblue;font-weight: bold; font-size: 16px;">Genre : (ambil dari tabel) <br></span> <!-- Genre -->
-                <span style="color: white;">Like : (ambil dari db)</span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
-            </div> 
-        </div>
+        @endforeach
 
     </div>  
 @endsection
@@ -98,4 +99,17 @@
         </div>
     </div>
     
+    <!-- ajax dll -------------------------------------------------------------------------------------------- -->
+    <script>
+        // akan ada 2 hal yang dilakukan, 1 lakukan ajax ubah navbar, lakukan reload data dan show ulang
+        $('#filter').click(function (even) {
+            // sek error betulis bsk
+        });
+        // buat token ajax
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': csrfToken  // Menambahkan token CSRF ke header setiap request AJAX
+            }
+        }); 
+    </script>
 @endsection
