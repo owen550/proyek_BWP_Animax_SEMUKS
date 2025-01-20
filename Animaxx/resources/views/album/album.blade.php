@@ -22,10 +22,19 @@
               <div class="infoDetail">
                 <span style="color: white;"><h1>{{$dt['album']->judulUtama}}</h1></span> <br> <!-- Judul -->
                 <span style="color: white;">{{$dt['album']->deskripsi}}</span> <br><br> <!-- Deskripsi -->
-                <span style="color: white">Genre : (munculkan genre di sini)</span> <br><br> <!-- Genre -->
+                <span style="color: white">Genre : 
+                  
+                  @foreach($dt['album']->genres as $genre)
+                      <span>{{ $genre->genreName }}</span>
+                      @if (!$loop->last) <!-- ksik koma lek ws terakhir -->
+                          , 
+                      @endif
+                  @endforeach
+
+                </span> <br><br> <!-- Genre -->
                 <div class="setTombolWatch"> <!-- tombol lihat trailer sama lihat vidio langsung -->
-                  <a href="{{url('/album/watch')}}" class="setButton setColor1">Watch Trailer</a>
-                  <a href="{{url('/album/watch')}}" class="setButton setColor2">Watch Anime</a>
+                  <a href="/watch/{{$dt['vidio']->judul}}" class="setButton setColor1">Watch Trailer</a>
+                  <a href="/watch/{{$dt['vidio']->judul}}" class="setButton setColor2">Watch Anime</a>
                 </div>
               </div>
             </div>

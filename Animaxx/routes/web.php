@@ -50,7 +50,7 @@ Route::post('/main/profile/ubah',[ProfileControler::class,'editProfil']);
 // ==================================================== buat album
 Route::get('/album/{id}',[AlbumController::class,'setAlbum']);
 
-Route::get('/album/watch',function(){
+Route::get('/watch/{id}',function(){
     return view('watch/watch');
 });
 
