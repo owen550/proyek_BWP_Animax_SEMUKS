@@ -196,12 +196,5 @@
                 }
             })
         });
-
-        // buat token ajax
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': csrfToken  // Menambahkan token CSRF ke header setiap request AJAX
-            }
-        }); 
     </script>
 @endsection
