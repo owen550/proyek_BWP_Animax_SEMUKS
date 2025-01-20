@@ -14,6 +14,10 @@ class TabelAlbum extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
+    public function studios(){
+        return $this->belongsTo(TabelStudio::class,'studioID','id');
+    }
+
     public function genres() {
         return $this->belongsToMany(TabelGenre::class, 'genrelist', 'idAlbum', 'idGenre');
         // model,nama tabel many to manynya, idlawan,id diri sendiri

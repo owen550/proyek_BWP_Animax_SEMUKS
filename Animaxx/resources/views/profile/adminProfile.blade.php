@@ -17,7 +17,7 @@
 
 <!-- lihat info user -->
  <h3>Info User</h3>
-<a href="" style="text-decoration: none;">
+<a href="{{ route('lihatUsers') }}" style="text-decoration: none;">
     <div class="setButtonUmum">
         Lihat User
     </div>
