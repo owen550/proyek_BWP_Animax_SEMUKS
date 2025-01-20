@@ -14,7 +14,7 @@ class TabelGenre extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
-    public function albums(){
-        return $this->belongsToMany(TabelAlbum::class,'genrelist','idAlbum','id');
+    public function albums() {
+        return $this->belongsToMany(TabelAlbum::class, 'genrelist', 'idGenre', 'idAlbum');
     }
 }

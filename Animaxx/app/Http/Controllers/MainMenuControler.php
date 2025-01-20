@@ -22,8 +22,38 @@ class MainMenuControler extends Controller
         ->orderByDesc('like_total')
         ->get();
 
+        // dd($dt['album']);
         return view('mainMenu.mainMenuHome',[
             "dt" => $dt
+        ]);
+    }
+
+    function filter(Request $req){
+        $filterTable = $req->input('filter');
+        $dt['judul'] = $filterTable;
+        if($filterTable == 'Home'){
+            $dt['album'] = TabelAlbum::with('genres')->get();
+        
+            $dt['listlike'] = DB::table('likelist as l')
+            ->join('vidio as v', 'v.id', '=', 'l.idVidio')
+            ->join('album as a', 'a.id', '=', 'v.album')
+            ->select('a.judulUtama', DB::raw('count(a.judulUtama) as like_total'))
+            ->groupBy('a.judulUtama')
+            ->orderByDesc('like_total')
+            ->get();
+        }
+        else if($filterTable == 'PlayList'){
+
+        }
+        else if($filterTable == 'Movies'){
+
+        }
+        else{ // News
+
+        }
+
+        return response()->json([
+            'dt' => $dt,
         ]);
     }
 }
