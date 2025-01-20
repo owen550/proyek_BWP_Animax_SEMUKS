@@ -9,7 +9,7 @@
     </div>
 </a>
 
-<a href="" style="text-decoration: none;">
+<a href="{{ route('upload.album') }}" style="text-decoration: none;">
     <div class="setButtonUmum">
         Upload Album Baru
     </div>

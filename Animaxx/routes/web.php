@@ -4,6 +4,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\loginRegisterControler;
 use App\Http\Controllers\MainMenuControler;
 use App\Http\Controllers\ProfileControler;
+use App\Http\Controllers\AlbumController;
 use Illuminate\Support\Facades\Route;
 
 // untuk model
@@ -55,3 +56,7 @@ Route::get('/watch/{id}',function(){
 });
 
 
+
+Route::get('/uploadAlbum', [AlbumController::class, 'create'])->name('upload.album');
+
+Route::post('/uploadAlbum', [AlbumController::class, 'store'])->name('uploadAlbum.store');
