@@ -89,7 +89,7 @@
                     <!-- berisi foto profil user -->
                 </div>
                 <div class="setUserInfo">
-                    <span class="setNamaUser">@ {{}}</span><br><!-- username user -->
+                    <span class="setNamaUser">@ {{session('username')}}</span><br><!-- username user -->
                     <span>{{$d->isiKomentar}}</span>
                 </div>
             </div>
