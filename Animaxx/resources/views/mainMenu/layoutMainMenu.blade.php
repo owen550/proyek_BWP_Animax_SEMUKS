@@ -71,7 +71,7 @@
         </div>
 
         <div class="footer"> <!-- iki buat footer (gk perlu blade templating kudune)-->
-            Kelompok Animax : Owen Moses(223117101),Ricard Tirto(),Kevin AK() -> (isi jok lupa !!!)
+            Kelompok Animax : Owen Moses(223117101),Richard Tirto(223117105),Kevin AK(223117093) -> (isi jok lupa !!!)
         </div>
     </div>
 

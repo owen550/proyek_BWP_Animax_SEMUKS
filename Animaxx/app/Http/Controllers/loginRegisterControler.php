@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\UserTabel;
 use Session;
 
@@ -29,6 +30,8 @@ class loginRegisterControler extends Controller
             'edPassword.required' => 'Password wajib diisi.',
             'edPassword.min' => 'Password minimal 5 karakter.',
         ]);
+
+        
 
         // lakukan pengecekan apakah username sama
         $data = UserTabel::where('username',$username)->first();
@@ -66,6 +69,7 @@ class loginRegisterControler extends Controller
             'edPassword.min' => 'Password minimal 5 karakter.',
         ]);
 
+      
         // cek ada atau tidak
         $result = UserTabel::where('username',$username)->where('password',$password)->first();
         // return
@@ -91,4 +95,7 @@ class loginRegisterControler extends Controller
             return redirect('/')->with('pesan','Username atau Password Salah !!!');
         }
     }
-}
+
+    
+    }
+

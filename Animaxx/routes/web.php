@@ -6,6 +6,7 @@ use App\Http\Controllers\loginRegisterControler;
 use App\Http\Controllers\MainMenuControler;
 use App\Http\Controllers\ProfileControler;
 use App\Http\Controllers\WatchController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 
 // untuk model
@@ -26,7 +27,7 @@ use App\Models\TabelGenre;
 // ===================================================== buat login register
 Route::get('/', function () {
     return view('loginRegisterPage/login');
-});
+})->name('login');
 
 Route::get('/register', function () {
     return view('loginRegisterPage/register');
@@ -66,4 +67,10 @@ Route::post('/uploadAlbum', [AlbumController::class, 'store'])->name('uploadAlbu
 
 Route::get('/lihat-users', [UserController::class, 'showUsers'])->name('lihatUsers');
 Route::post('/update-user-status/{id}', [UserController::class, 'updateUserStatus'])->name('updateUserStatus');
+
+Route::get('/dashboard', [SubscriptionController::class, 'dashboard'])->name('dashboard');
+Route::get('/subscription', [SubscriptionController::class, 'showSubscriptionPage'])->name('showSubscriptionPage');
+Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
+
+
 
