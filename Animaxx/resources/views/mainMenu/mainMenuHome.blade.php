@@ -100,7 +100,7 @@
                         @endif
                         @endforeach
                     </span> <!-- Like (ini gini aja ngitung like = max(jumlah like anime di judul tersebut))-->
-                </div> 
+                </div>
             </div>
             <!-- ======================================== -->
         </a>
@@ -211,8 +211,24 @@
                     else if($filter == Movies){
 
                     }
-                    else if($filter == News){
-
+                    else if($filter == 'News'){
+                         // Looping melalui playlist
+                        $(res.dt['news']).each(function(index, con) {
+                            tabelBaru +=
+                                '<a href="' + con.url + '" style="text-decoration: none; width: 100%; color: white;">' + // Link ke berita
+                                    '<div class="setIsiBesar">' +
+                                        '<div class="foto" style="background-image: url(\'' + con.imageURL + '\');">' + 
+                                            '<!-- set foto di sini -->' +
+                                        '</div>' +
+                                        '<div class="info">' +
+                                            '<div>' +
+                                                '<h3>' + con.judul + '</h3>' +
+                                                '<span>' + con.deskripsi + '</span>' + // Menampilkan deskripsi
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</a>';
+                        });
                     }
                     else{
 

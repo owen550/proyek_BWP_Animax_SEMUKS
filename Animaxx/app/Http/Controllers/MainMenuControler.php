@@ -79,10 +79,17 @@ class MainMenuControler extends Controller
             ->get();
         }
         else if($filterTable == 'Movies'){
-
+            $dt['news'] = DB::table('news')
+            ->select('judul', 'deskripsi')
+            ->get();
+        }
+        else if ($filterTable == 'News') {
+            $dt['news'] = DB::table('news')
+                ->select('judul', 'deskripsi', 'url', 'imageURL')
+                ->get();
         }
         else{ // News
-
+            
         }
 
         return response()->json([
