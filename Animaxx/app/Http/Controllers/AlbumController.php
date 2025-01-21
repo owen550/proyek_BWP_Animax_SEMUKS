@@ -13,9 +13,23 @@ class AlbumController extends Controller
         $idVidio = $dt['album']->id;
         $dt['vidio'] = TabelVidio::where(["album" => $idVidio])->first();
 
-        return view('album/album',[
-            "dt" => $dt,
-        ]);
+        // https://istts.ac.id/
+        if(session('member') == 0){
+            $randomNumber = rand(0, 3);
+            if($randomNumber == 0){
+                return view('album/album',[
+                    "dt" => $dt,
+                ]);
+            }
+            else{
+                return redirect('https://istts.ac.id/');
+            }
+        }
+        else{
+            return view('album/album',[
+                "dt" => $dt,
+            ]);
+        }
     }
 
     public function create()
