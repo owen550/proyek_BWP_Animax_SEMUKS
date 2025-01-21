@@ -194,7 +194,7 @@
                         // Looping melalui playlist
                         $(res.dt['playlist']).each(function(index, con) {
                             tabelBaru += 
-                                '<a href="/playlist/' + con.judul + '" style="text-decoration: none; width: 100%; color: white;">' + // Link ke playlist
+                                '<a href="/album/' + con.judulUtama + '" style="text-decoration: none; width: 100%; color: white;">' + // Link ke playlist
                                     '<div class="setIsiBesar">' +
                                         '<div class="foto" style="background-image: url(\'' + con.imageAlbum + '\');">' + 
                                             '<!-- set foto di sini -->' +

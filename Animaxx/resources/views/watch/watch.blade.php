@@ -72,11 +72,24 @@
             <!-- munculin semua komentar di sini -->
             @foreach ($dt['komen'] as $d)
             <div class="setCardComentar">
-                <div class=setFotoProfilUser style="background-image: url('{{session('imageURL')}}');border: 3px solid white;">
+                <?php
+                    $color = null;
+                    if(session('member') == 0){
+                        $color = 'white';
+                    }
+                    else if(session('member') == 1){
+                        $color = 'purple';
+                    }
+                    else{
+                        $color = 'gold';
+                    }
+
+                ?>
+                <div class=setFotoProfilUser style="background-image: url('{{session('imageURL')}}');border: 3px solid <?= $color ?>;">
                     <!-- berisi foto profil user -->
                 </div>
                 <div class="setUserInfo">
-                    <span class="setNamaUser">@{{session('username')}}</span><br><!-- username user -->
+                    <span class="setNamaUser">@ {{session('username')}}</span><br><!-- username user -->
                     <span>{{$d->isiKomentar}}</span>
                 </div>
             </div>
@@ -98,7 +111,7 @@
     <script>
         $('#klikSend').click(function (even) {
             var $komen = $('#komentarnya').val();
-            var $idVid = 1;
+            var $idVid = '{{$dt['vidio']->id}}';
             
             $.ajax({
                 //uts_se
@@ -123,16 +136,19 @@
     <div class="scrollBar">
 
         <!-- untuk card ukuran kecil mulai dari sini -->
+        
+        @foreach ($dt['listVidio'] as $d)
         <div class="miniCard">
             <!-- jangan lupa ganti bgi nya -->
             <div class="setGambarCardMini" style="background-image: url('https://wallpaperaccess.com/full/9408932.png');">
                 <!-- udah ada imagenya biarin kosong -->
             </div>
             <div class="setIdentitas"><!-- isi identitas anime di sini -->
-                <span style="font-weight: bold;font-size: 18px;">Alibaba The Last Air Harem <br></span> <!-- Judul -->
-                <span>17 Agussedih 1945</span> <!-- Relase Date -->
+                <span style="font-weight: bold;font-size: 18px;">{{$d->judul}}<br></span> <!-- Judul -->
+                <span>{{$d->relaseDate}}</span> <!-- Relase Date -->
             </div>
         </div>
+        @endforeach
 
     </div>
 @endsection

@@ -73,7 +73,7 @@ class MainMenuControler extends Controller
             $dt['playlist'] = DB::table('playlist as p')
             ->join('vidio as v', 'v.id', '=', 'p.idVidio')
             ->join('album as a', 'a.id', '=', 'v.id') // Menambahkan join untuk tabel album
-            ->select('p.idVidio', 'v.judul', 'a.imageAlbum') // Memilih kolom yang sesuai
+            ->select('p.idVidio', 'v.judul', 'a.imageAlbum','a.judulUtama','a.id') // Memilih kolom yang sesuai
             ->where('p.STATUS', 1)
             ->where('p.idUser', session('idUser'))
             ->get();
