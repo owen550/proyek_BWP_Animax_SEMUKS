@@ -14,6 +14,7 @@ class TabelAlbum extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
+
     public function studios(){
         return $this->belongsTo(TabelStudio::class,'studioID','id');
     }

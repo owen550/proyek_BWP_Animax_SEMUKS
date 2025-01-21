@@ -2,65 +2,78 @@
 namespace App\Http\Controllers;
 
 use App\Models\AlbumTabel;
+use App\Models\GenreList;
+use App\Models\TabelGenre;
 use Illuminate\Http\Request;
 use App\Models\TabelAlbum;
 use App\Models\TabelVidio;
 
 class AlbumController extends Controller
 {
-    function setAlbum($judul){
-        $dt['album'] = TabelAlbum::with('genres')->where('judulUtama',$judul)->first();
+    function setAlbum($judul)
+    {
+        $dt['album'] = TabelAlbum::with('genres')->where('judulUtama', $judul)->first();
         $idVidio = $dt['album']->id;
         $dt['vidio'] = TabelVidio::where(["album" => $idVidio])->first();
 
-        // https://istts.ac.id/
-        if(session('member') == 0){
-            $randomNumber = rand(0, 3);
-            if($randomNumber == 0){
-                return view('album/album',[
-                    "dt" => $dt,
-                ]);
-            }
-            else{
-                return redirect('https://istts.ac.id/');
-            }
-        }
-        else{
-            return view('album/album',[
-                "dt" => $dt,
-            ]);
-        }
+        return view('album/album', [
+            "dt" => $dt,
+        ]);
     }
 
     public function create()
     {
-        return view('profile.uploadAlbum');
+        // Ambil data genre untuk ditampilkan di form
+        $genres = TabelGenre::all(); // Pastikan Anda memiliki model Genre
+        return view('profile.uploadAlbum', compact('genres'));
     }
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'judulUtama' => 'required|string',
-            'judulTambahan' => 'nullable|string',
+        // Validasi input
+        $validated = $request->validate([
+            'judulUtama' => 'required|string|max:255',
+            'judulTambahan' => 'nullable|string|max:255',
             'statusTamat' => 'required|boolean',
             'releaseDate' => 'nullable|date',
             'studioID' => 'required|integer|max:10',
             'deskripsi' => 'required|string|max:100',
-            'imageAlbum' => 'required|url',
-            'imageHorizontal' => 'required|url',
+            'imageAlbum' => 'required|url', // Validasi hanya menerima URL
+            'imageHorizontal' => 'required|url', // Validasi hanya menerima URL
+            'genre' => 'required|array|min:1|max:3',
+            'genre.*' => 'exists:genre,id',
         ]);
 
+        // Simpan gambar jika ada
         if ($request->hasFile('imageAlbum')) {
-            $validatedData['imageAlbum'] = $request->file('imageAlbum')->store('albums', 'public');
+            $validated['imageAlbum'] = $request->file('imageAlbum')->store('albums', 'public');
         }
 
         if ($request->hasFile('imageHorizontal')) {
-            $validatedData['imageHorizontal'] = $request->file('imageHorizontal')->store('albums', 'public');
+            $validated['imageHorizontal'] = $request->file('imageHorizontal')->store('albums', 'public');
         }
 
-        // Simpan ke database menggunakan model Album
-        AlbumTabel::create($validatedData);
+        // Simpan data album
+        $album = AlbumTabel::create([
+            'judulUtama' => $validated['judulUtama'],
+            'judulTambahan' => $validated['judulTambahan'],
+            'statusTamat' => $validated['statusTamat'],
+            'releaseDate' => $validated['releaseDate'],
+            'studioID' => $validated['studioID'],
+            'deskripsi' => $validated['deskripsi'],
+            'imageAlbum' => $validated['imageAlbum'] ?? null,
+            'imageHorizontal' => $validated['imageHorizontal'] ?? null,
+        ]);
 
-        return redirect()->route('upload.album')->with('success', 'Album berhasil diunggah!');
+        // Simpan data genrelist
+        foreach ($validated['genre'] as $genreId) {
+            GenreList::create([
+                'idAlbum' => $album->id,
+                'idGenre' => $genreId,
+            ]);
+        }
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('uploadAlbum.create')->with('success', 'Album berhasil diupload!');
     }
 }
