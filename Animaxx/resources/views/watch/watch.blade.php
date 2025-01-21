@@ -89,12 +89,13 @@
                     <!-- berisi foto profil user -->
                 </div>
                 <div class="setUserInfo">
-                    <span class="setNamaUser">@ {{session('username')}}</span><br><!-- username user -->
+                    <span class="setNamaUser">@ {{}}</span><br><!-- username user -->
                     <span>{{$d->isiKomentar}}</span>
                 </div>
             </div>
             @endforeach
-
+            
+            <!-- contoh card -->
             <div class="setCardComentar">
                 <div class=setFotoProfilUser style="background-image: url('https://tse2.mm.bing.net/th?id=OIP.SXJrDXx1NmFi6MHrFfVYlQHaHa&pid=Api&P=0&h=180');border: 3px solid white;">
                     <!-- berisi foto profil user -->

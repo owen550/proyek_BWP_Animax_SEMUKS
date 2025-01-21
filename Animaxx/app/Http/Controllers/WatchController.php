@@ -16,14 +16,15 @@ class WatchController extends Controller
         $idVid = $req->input('idvid');
         
         // add ke db
-        $do = DB::table('komentar')->insert([
+        $dt['komen'] = DB::table('komentar')->insert([
             'idUser' => session('idUser'),
-            'idVidio' => $idVid, 
+            'idVidio' => $idVid,
             'isiKomentar' => $komen,
         ]);
 
         return response()->json([
-            'komen' => $komen
+            'komen' => $komen,
+            'dt' => $dt,
         ]);
     }
 
