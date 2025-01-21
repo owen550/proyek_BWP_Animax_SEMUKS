@@ -71,9 +71,18 @@
         </div>
 
         <div class="footer"> <!-- iki buat footer (gk perlu blade templating kudune)-->
-            <!-- iki ntik footer di gawe yo -->
+            Kelompok Animax : Owen Moses(223117101),Ricard Tirto(),Kevin AK() -> (isi jok lupa !!!)
         </div>
     </div>
+
+    <script>
+        // buat token ajax
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': csrfToken  // Menambahkan token CSRF ke header setiap request AJAX
+            }
+        }); 
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

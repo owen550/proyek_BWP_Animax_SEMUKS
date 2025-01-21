@@ -33,8 +33,12 @@
 
                 </span> <br><br> <!-- Genre -->
                 <div class="setTombolWatch"> <!-- tombol lihat trailer sama lihat vidio langsung -->
-                  <a href="/watch/{{$dt['vidio']->judul}}" class="setButton setColor1">Watch Trailer</a>
-                  <a href="/watch/{{$dt['vidio']->judul}}" class="setButton setColor2">Watch Anime</a>
+                  @if ($dt['vidio'] == null)
+                    <span style="font-size: 25px; color:red;font-weight: bold;">Admin Belum Menambahkan Vidio, Cek Lagi Nanti !!!</span>
+                  @else
+                    <a href="/watch/{{$dt['vidio']->judul}}" class="setButton setColor1">Watch Trailer</a>
+                    <a href="/watch/{{$dt['vidio']->judul}}" class="setButton setColor2">Watch Anime</a>
+                  @endif
                 </div>
               </div>
             </div>

@@ -16,21 +16,41 @@
     <h2>Most Like</h2>
     <!-- ini bagian top anime di sort berdasarkan like -->
     <!-- untuk bagian ini berdasarkan databes y, ini mek sementara polae db ne belum ada -->
-    <div style="background-image: url('https://wallpaperaccess.com/full/9408932.png');" class="setUkuranPanel" >
+    <div style="background-image: url('https://wallpaperaccess.com/full/9408932.png');" class="setUkuranPanel scrollBar" >
         <!--  -->
         <div class="setTopAnime">
             <div style="width: 60%;height:100%;"><!-- semenyata sini kosong dulu ---></div>
             <div class="transisi"><!-- ini bagian info animenya --->
                 
-                <h2>Naruto Abdul All Hamzah Zainudin All In Boom Boom Boom</h2> <!-- ini buat judul utama -->
-                <h5>The Journy Of Paradise</h5> <!-- Judul Tambahannya -->
+                <h2>{{$dt['pop']['judulUtama']}}</h2> <!-- ini buat judul utama -->
+                <h5>{{$dt['pop']['judulTambahan']}}</h5> <!-- Judul Tambahannya -->
                 <span>Our Most Recomended Anime <br></span>
-                <span>Genre : (iki ntik di foreach genrene) <br></span>
-                <span>Status : Nti disi status <br></span>
-                <span>Relase Date : (dd MM YYYY) <br> </span>
-                <span>Studio : Misal Mapa</span> <br><br>
+                <span>Genre : 
+                    <!--  -->
+                    @foreach ($dt['album'] as $album)  <!-- Looping melalui album -->
+                        @if ($album->judulUtama == $dt['pop']['judulUtama']) <!-- Memeriksa judul album -->
+                            @foreach ($album->genres as $genre)  <!-- Looping melalui genre terkait -->
+                                <span>{{ $genre->genreName }}</span> <!-- Menampilkan nama genre -->
+                                @if (!$loop->last) <!-- Jika bukan genre terakhir -->
+                                    ,
+                                @endif
+                            @endforeach
+                        @endif
+                    @endforeach
+                    <!--  -->
+                <br></span>
+                <span>
+                    Status : 
+                    @if ($dt['pop']['Status'] == "Tamat")
+                        <span style="color: green;">{{$dt['pop']['Status']}}</span>
+                    @else
+                        <span style="color: red;">{{$dt['pop']['Status']}}</span>
+                    @endif
+                <br></span>
+                <span>Relase Date : {{$dt['pop']['relaseDate']}} <br> </span>
+                <span>Studio : {{$dt['pop']['Studio']}}</span> <br><br>
 
-                <a href="{{url('album')}}">
+                <a href="{{url('album')}}" style="text-decoration: none;">
                     <div class="watchAlbum">
                         <i class="bi bi-collection-play"></i>
                         <span style="margin-left: 20px;">Watch Album </span>
@@ -92,17 +112,24 @@
 @section('newrelase')
     <h2>Last Relase</h2>
     <!-- untuk card ukuran kecil mulai dari sini -->
-    <div class="miniCard">
-        <!-- jangan lupa ganti bgi nya -->
-        <div class="setGambarCardMini" style="background-image: url('https://wallpaperaccess.com/full/9408932.png');">
-            <!-- nanti gambar cardnya ditaruh sini -->
-        </div>
-        <div class="setIdentitas"><!-- isi identitas anime di sini -->
-            <span style="font-weight: bold;font-size: 18px;">Alibaba The Last Air Harem <br></span> <!-- Judul -->
-            <span>(Misal Action,Romance,Dan Lain Lain) <br></span> <!-- Genre -->
-            <span>17 Agussedih 1945</span> <!-- Relase Date -->
-        </div>
-    </div>
+    <div class="scrollBar setUkuranScroll">
+        @foreach ($dt['vidio'] as $d)
+
+        <a href="/watch/{ali}'" style="text-decoration: none; color: white;">
+            <div class="miniCard">
+                <!-- jangan lupa ganti bgi nya -->
+                <div class="setGambarCardMini" style="background-image: url('{{$d->imageAlbum}}');">
+                    <!-- nanti gambar cardnya ditaruh sini -->
+                </div>
+                <div class="setIdentitas"><!-- isi identitas anime di sini -->
+                    <span style="font-weight: bold;font-size: 18px;">{{$d->judul}}<br></span> <!-- Judul -->
+                    <span>(Misal Action,Romance,Dan Lain Lain) <br></span> <!-- Genre -->
+                    <span>{{$d->relaseDate}}</span> <!-- Relase Date -->
+                </div>
+            </div>
+        </a>
+
+        @endforeach        
     
     <!-- ajax dll -------------------------------------------------------------------------------------------- -->
     <script>
@@ -169,12 +196,5 @@
                 }
             })
         });
-
-        // buat token ajax
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': csrfToken  // Menambahkan token CSRF ke header setiap request AJAX
-            }
-        }); 
     </script>
 @endsection
