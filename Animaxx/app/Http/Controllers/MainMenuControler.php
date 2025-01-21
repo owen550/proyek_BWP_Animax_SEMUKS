@@ -46,6 +46,7 @@ class MainMenuControler extends Controller
             'Status' => $status,
             'relaseDate' => $dtA->releaseDate,
             'Studio' => $dtA->studios->namaStudio,
+            'image' => $dtA->imageAlbum,
         ];
 
         // dd($dt['album']);
@@ -69,7 +70,13 @@ class MainMenuControler extends Controller
             ->get();
         }
         else if($filterTable == 'PlayList'){
-
+            $dt['playlist'] = DB::table('playlist as p')
+            ->join('vidio as v', 'v.id', '=', 'p.idVidio')
+            ->join('album as a', 'a.id', '=', 'v.id') // Menambahkan join untuk tabel album
+            ->select('p.idVidio', 'v.judul', 'a.imageAlbum') // Memilih kolom yang sesuai
+            ->where('p.STATUS', 1)
+            ->where('p.idUser', session('idUser'))
+            ->get();
         }
         else if($filterTable == 'Movies'){
 

@@ -16,7 +16,7 @@
     <h2>Most Like</h2>
     <!-- ini bagian top anime di sort berdasarkan like -->
     <!-- untuk bagian ini berdasarkan databes y, ini mek sementara polae db ne belum ada -->
-    <div style="background-image: url('https://wallpaperaccess.com/full/9408932.png');" class="setUkuranPanel scrollBar" >
+    <div style="background-image: url('{{$dt['pop']['image']}}');" class="setUkuranPanel scrollBar" >
         <!--  -->
         <div class="setTopAnime">
             <div style="width: 60%;height:100%;"><!-- semenyata sini kosong dulu ---></div>
@@ -50,10 +50,10 @@
                 <span>Relase Date : {{$dt['pop']['relaseDate']}} <br> </span>
                 <span>Studio : {{$dt['pop']['Studio']}}</span> <br><br>
 
-                <a href="{{url('album')}}" style="text-decoration: none;">
+                <a href="{{ url('/album/' . $dt['pop']['judulUtama']) }}" style="text-decoration: none;">
                     <div class="watchAlbum">
                         <i class="bi bi-collection-play"></i>
-                        <span style="margin-left: 20px;">Watch Album </span>
+                        <span style="margin-left: 20px;">Watch Album</span>
                     </div>
                 </a>
             
@@ -67,7 +67,7 @@
     <br>
     <h2 id="title">Home</h2>
     <div class="listAnime" id="listAnime">
-        
+
         @foreach ($dt['album'] as $d)
         <!-- isi tiap card (oi mas adidas ini check poin ya dull) -->
         <a href="/album/{{$d->judulUtama}}" style="text-decoration: none;">
@@ -154,39 +154,69 @@
                         }
                     });
 
+                    
                     $('#title').text(res.dt['judul']);
                     $('#listAnime').empty(); // Reset ulang view utama
                     var tabelBaru = '';
 
-                    // Looping melalui album
-                    $(res.dt['album']).each(function(index, con) {
-                        tabelBaru +=
-                            '<a href="/album/' + con.judulUtama + '" style="text-decoration: none;">' + // Link ke album
-                                '<div class="card">' +
-                                    '<div class="setGambar">' +
-                                        '<img src="' + con.imageHorizontal + '" alt="" class="setUkuranGambar">' +
+                    if($filter == 'Home') {
+                        // Looping melalui album
+                        $(res.dt['album']).each(function(index, con) {
+                            tabelBaru +=
+                                '<a href="/album/' + con.judulUtama + '" style="text-decoration: none;">' + 
+                                    '<div class="card">' +
+                                        '<div class="setGambar">' +
+                                            '<img src="' + con.imageHorizontal + '" alt="" class="setUkuranGambar">' +
+                                        '</div>' +
+                                        '<div>' +
+                                            '<span style="color: yellow; font-weight: bold; font-size: 25px;">' + con.judulUtama + '<br></span>' +
+                                            '<span style="color: mediumblue; font-weight: bold; font-size: 16px;">Genre: ';
+
+                            // Menambahkan genre
+                            var genres = con.genres.map(function(genre) {
+                                return genre.genreName;
+                            }).join(', ');
+
+                            tabelBaru += genres + '</span><br>';
+
+                            // Menambahkan like
+                            var likeCount = res.dt['listlike'].find(function(l) {
+                                return l.judulUtama === con.judulUtama;
+                            });
+
+                            tabelBaru += '<span style="color: white;">Like: ' + (likeCount ? likeCount.like_total : 0) + '</span>' +
+                                        '</div>' +
                                     '</div>' +
-                                    '<div>' +
-                                        '<span style="color: yellow; font-weight: bold; font-size: 25px;">' + con.judulUtama + '<br></span>' +
-                                        '<span style="color: mediumblue; font-weight: bold; font-size: 16px;">Genre: ';
-
-                        // Menambahkan genre
-                        var genres = con.genres.map(function(genre) {
-                            return genre.genreName;
-                        }).join(', ');
-
-                        tabelBaru += genres + '</span><br>';
-
-                        // Menambahkan like
-                        var likeCount = res.dt['listlike'].find(function(l) {
-                            return l.judulUtama === con.judulUtama;
+                                '</a>'; // Tutup link
                         });
-
-                        tabelBaru += '<span style="color: white;">Like: ' + (likeCount ? likeCount.like_total : 0) + '</span>' +
+                    }
+                    else if($filter == 'PlayList'){
+                        // Looping melalui playlist
+                        $(res.dt['playlist']).each(function(index, con) {
+                            tabelBaru += 
+                                '<a href="/playlist/' + con.judul + '" style="text-decoration: none; width: 100%; color: white;">' + // Link ke playlist
+                                    '<div class="setIsiBesar">' +
+                                        '<div class="foto" style="background-image: url(\'' + con.imageAlbum + '\');">' + 
+                                            '<!-- set foto di sini -->' +
+                                        '</div>' +
+                                        '<div class="info">' +
+                                            '<div>' +
+                                                '<h3>' + con.judul + '</h3>' +
+                                            '</div>' +
+                                        '</div>' +
                                     '</div>' +
-                                '</div>' +
-                            '</a>'; // Tutup link
-                    });
+                                '</a>';
+                        });
+                    }
+                    else if($filter == Movies){
+
+                    }
+                    else if($filter == News){
+
+                    }
+                    else{
+
+                    }
 
                     // Menambahkan card baru ke kontainer
                     $('#listAnime').append(tabelBaru);
