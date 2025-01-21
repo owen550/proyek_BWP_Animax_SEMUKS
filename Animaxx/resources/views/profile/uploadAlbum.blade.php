@@ -83,8 +83,25 @@
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-        
+
+        <div class="mb-3">
+    <label for="genre" class="form-label">Genre</label>
+    @foreach($genres as $genre)
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="genre{{ $genre->id }}" name="genre[]" value="{{ $genre->id }}" 
+                {{ in_array($genre->id, old('genre', [])) ? 'checked' : '' }}>
+            <label class="form-check-label" for="genre{{ $genre->id }}">{{ $genre->genreName }}</label>
+        </div>
+    @endforeach
+    @error('genre')
+        <small class="text-danger">{{ $message }}</small>
+    @enderror
+</div>
+        <a href="/main/profile/admin" class="btn btn-secondary">Back</a>
         <button type="submit" class="btn btn-primary">Upload</button>
     </form>
 </div>
+
+
+
 @endsection

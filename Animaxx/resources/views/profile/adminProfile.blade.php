@@ -9,7 +9,7 @@
     </div>
 </a>
 
-<a href="{{ route('upload.album') }}" style="text-decoration: none;">
+<a href="{{ route('uploadAlbum.create') }}" style="text-decoration: none;">
     <div class="setButtonUmum">
         Upload Album Baru
     </div>
@@ -22,5 +22,7 @@
         Lihat User
     </div>
 </a>
+
+<div> <a href="/main/home" class="btn btn-secondary">Back</a></div>
 
 @endsection
