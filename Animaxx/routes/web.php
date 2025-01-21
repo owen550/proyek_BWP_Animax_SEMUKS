@@ -57,9 +57,12 @@ Route::get('/watch/{id}',function(){
 
 
 
-Route::get('/uploadAlbum', [AlbumController::class, 'create'])->name('upload.album');
 
+
+Route::get('/uploadAlbum', [AlbumController::class, 'create'])->name('uploadAlbum.create');
 Route::post('/uploadAlbum', [AlbumController::class, 'store'])->name('uploadAlbum.store');
+
+
 
 Route::get('/lihat-users', [UserController::class, 'showUsers'])->name('lihatUsers');
 Route::post('/update-user-status/{id}', [UserController::class, 'updateUserStatus'])->name('updateUserStatus');
