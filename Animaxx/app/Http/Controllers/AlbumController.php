@@ -39,7 +39,7 @@ class AlbumController extends Controller
             'studioID' => 'required|integer|max:10',
             'deskripsi' => 'required|string|max:100',
             'imageAlbum' => 'required|url', // Validasi hanya menerima URL
-            'imageHorizontal' => 'required|url',
+            'imageHorizontal' => 'required|url', // Validasi hanya menerima URL
             'genre' => 'required|array|min:1|max:3',
             'genre.*' => 'exists:genre,id',
         ]);

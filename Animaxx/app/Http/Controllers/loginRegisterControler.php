@@ -83,7 +83,6 @@ class loginRegisterControler extends Controller
                 Session::put('password',$result->password);
                 Session::put('imageURL',$result->imageURL);
                 Session::put('member',$result->member);
-                
                 // pergi ke main home
                 return redirect('/main/home');
             }
