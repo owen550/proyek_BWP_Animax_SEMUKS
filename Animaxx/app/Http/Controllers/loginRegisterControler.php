@@ -5,10 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserTabel;
+use Illuminate\Support\Facades\Hash;
 use Session;
 
 class loginRegisterControler extends Controller
 {
+    // Tambahkan method untuk menampilkan halaman login
+    public function showLogin()
+    {
+        return view('loginRegisterPage.login');
+    }
+
+    // Tambahkan method untuk menampilkan halaman register
+    public function showRegister()
+    {
+        return view('loginRegisterPage.register');
+    }
 
     function register(Request $req){
         $email = $req->edEmail;
@@ -31,8 +43,6 @@ class loginRegisterControler extends Controller
             'edPassword.min' => 'Password minimal 5 karakter.',
         ]);
 
-        
-
         // lakukan pengecekan apakah username sama
         $data = UserTabel::where('username',$username)->first();
         if($data){
@@ -40,12 +50,12 @@ class loginRegisterControler extends Controller
             return redirect('/register')->with('pesan','Username Telah Digunakan !!!');
         }
         else{
-            // add data
+            // add data dengan password yang di-hash
             UserTabel::create([
                 'email' => $email,
                 'nama' => $nama,
                 'username' => $username,
-                'password' => $password,
+                'password' => Hash::make($password),
                 'imageURL' => 'https://teknogram.id/gallery/foto-profil-wa/aesthetic/pp-wa-kosong-aesthetic-2.jpg',
                 'member' => '0',
                 'status' => '1'
@@ -69,33 +79,46 @@ class loginRegisterControler extends Controller
             'edPassword.min' => 'Password minimal 5 karakter.',
         ]);
 
-      
-        // cek ada atau tidak
-        $result = UserTabel::where('username',$username)->where('password',$password)->first();
-        // return
-        if($result){
+        // Menggunakan Auth untuk login
+        $credentials = [
+            'username' => $username,
+            'password' => $password
+        ];
 
-            if($result->status == 0){
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            
+            if($user->status == 0){
+                Auth::logout();
                 return redirect('/')->with('pesan','Akun Anda Telah Diblokir Oleh Admin !!!');
             }
-            else{
-                // simpan semua data
-                Session::put('idUser',$result->id);
-                Session::put('email',$result->email);
-                Session::put('nama',$result->nama);
-                Session::put('username',$result->username);
-                Session::put('password',$result->password);
-                Session::put('imageURL',$result->imageURL);
-                Session::put('member',$result->member);
-                // pergi ke main home
-                return redirect('/main/home');
-            }
+
+            // Regenerate session untuk keamanan
+            $req->session()->regenerate();
+
+            // Simpan data di session
+            Session::put('idUser', $user->id);
+            Session::put('email', $user->email);
+            Session::put('nama', $user->nama);
+            Session::put('username', $user->username);
+            Session::put('password', $user->password);
+            Session::put('imageURL', $user->imageURL);
+            Session::put('member', $user->member);
+
+            return redirect('/main/home');
         }
-        else{
-            return redirect('/')->with('pesan','Username atau Password Salah !!!');
-        }
+
+        return redirect('/')->with('pesan','Username atau Password Salah !!!');
     }
 
-    
-    }
+    // Tambahkan fungsi logout
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        Session::flush(); // Hapus semua session
 
+        return redirect('/');
+    }
+} 

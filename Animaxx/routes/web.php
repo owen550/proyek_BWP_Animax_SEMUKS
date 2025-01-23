@@ -24,53 +24,41 @@ use App\Models\TabelGenre;
 |
 */
 
-// ===================================================== buat login register
-Route::get('/', function () {
-    return view('loginRegisterPage/login');
-})->name('login');
-
-Route::get('/register', function () {
-    return view('loginRegisterPage/register');
+// Route untuk guest (belum login)
+Route::middleware('guest')->group(function() {
+    Route::get('/', [loginRegisterControler::class, 'showLogin'])->name('login');
+    Route::get('/register', [loginRegisterControler::class, 'showRegister']);
+    Route::post('/register', [loginRegisterControler::class, 'register']);
+    Route::post('/login', [loginRegisterControler::class, 'login']);
 });
 
-Route::post('/',[loginRegisterControler::class,'login']); 
-Route::post('/register',[loginRegisterControler::class,'register']);
-
-// ===================================================== buat main menu user dan admin
-Route::get('/main/home',[MainMenuControler::class,'mainMenuDataReturn']);
-Route::get('/main/home/filter',[MainMenuControler::class,'filter']);
-
-Route::get('/main/profile/admin',function(){
-    return view('profile/adminProfile');
+// Route untuk user yang sudah login (user dan admin)
+Route::middleware(['auth', 'checkStatus'])->group(function() {
+    Route::get('/logout', [loginRegisterControler::class, 'logout']);
+    
+    // Route general untuk user dan admin
+    Route::get('/main/home',[MainMenuControler::class,'mainMenuDataReturn']);
+    Route::get('/album/{id}',[AlbumController::class,'setAlbum']);
+    Route::get('/watch/{id}',[WatchController::class,'setWatch']);
+    Route::post('/main/profile/ubah',[ProfileControler::class,'editProfil']);
+    Route::get('/main/home/filter',[MainMenuControler::class,'filter']);
+    Route::get('/addkomen',[WatchController::class,'addKomen']);
+    
+    // Route khusus user (member == 0)
+    Route::middleware('user')->group(function() {
+        Route::get('/main/profile/user', function() {
+            return view('profile/userProfile');
+        });
+    });
+    
+    // Route khusus admin (member == 2)
+    Route::middleware('admin')->group(function() {
+        Route::get('/main/profile/admin', function() {
+            return view('profile/adminProfile');
+        });
+        Route::get('/uploadAlbum', [AlbumController::class, 'create'])->name('uploadAlbum.create');
+        Route::post('/uploadAlbum', [AlbumController::class, 'store'])->name('uploadAlbum.store');
+        Route::get('/lihat-users', [UserController::class, 'showUsers'])->name('lihatUsers');
+        Route::post('/update-user-status/{id}', [UserController::class, 'updateUserStatus'])->name('updateUserStatus');
+    });
 });
-
-Route::get('/main/profile/user',function(){
-    return view('profile/userProfile');
-});
-
-Route::post('/main/profile/ubah',[ProfileControler::class,'editProfil']);
-
-// ==================================================== buat album
-Route::get('/album/{id}',[AlbumController::class,'setAlbum']);
-
-// ==================================================== album watch
-Route::get('/watch/{id}',[WatchController::class,'setWatch']);
-
-Route::get('/addkomen',[WatchController::class,'addKomen']);
-
-
-Route::get('/uploadAlbum', [AlbumController::class, 'create'])->name('uploadAlbum.create');
-Route::post('/uploadAlbum', [AlbumController::class, 'store'])->name('uploadAlbum.store');
-
-
-
-
-Route::get('/lihat-users', [UserController::class, 'showUsers'])->name('lihatUsers');
-Route::post('/update-user-status/{id}', [UserController::class, 'updateUserStatus'])->name('updateUserStatus');
-
-Route::get('/dashboard', [SubscriptionController::class, 'dashboard'])->name('dashboard');
-Route::get('/subscription', [SubscriptionController::class, 'showSubscriptionPage'])->name('showSubscriptionPage');
-Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
-
-
-

@@ -61,13 +61,11 @@
             @yield('additionalButton')
 
             <!-- log out -->
-            <h3>Log Out</h3>
-            <a href="/" style="text-decoration: none;">
-                <div class="setButtonLogOut">
-                    Log Out
-                </div>
-            </a>
-        
+            <div class="d-flex">
+          @auth
+        <a href="{{ url('/logout') }}" class="btn btn-danger">Logout</a>
+        @endauth
+       </div> 
         </div>
 
     </div>
